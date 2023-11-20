@@ -4,6 +4,11 @@
 
 /* Font face */
 
+@font-face {
+  font-family: "Vazir";
+  src: url("./fonts/Vazir.ttf");
+}
+
 /* Start reset css */
 html,
 body,
@@ -134,17 +139,19 @@ table {
 
 /* Start Default css */
 :root {
-  --primary-font: "Samim";
+  --primary-font: "Vazir";
 }
 html {
   box-sizing: border-box;
   /* font-size: 62.5%; */
 }
 
-body {
+body,
+html,
+* {
   /* line-height: 1.6;
   font-size: 1.6rem; */
-  /* font-family: var(--primary-font); */
+  font-family: var(--primary-font);
   direction: rtl;
 }
 
