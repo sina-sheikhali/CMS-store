@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { IoSpeedometerOutline } from "react-icons/io5";
 import { MdOutlineProductionQuantityLimits } from "react-icons/md";
@@ -54,7 +55,8 @@ export default function Sidebar() {
           <span className="text-lightGray font-medium text-sm">منو</span>
         </li>
         <li className="pl-5 mb-1">
-          <a
+          <Link
+            to={"/"}
             href="javascript:void(0)"
             className="flex items-center whitespace-nowrap relative rounded-l-[100px] text-lightGray py-3 pr-2.5 pl-9 h-[46px] hover:bg-hoverColor  hover:text-white transition-colors duration-300 before:content-[''] before:w-[3px] before:h-full before:bg-blueColor before:inline-block before:absolute before:right-0 before:top-0"
           >
@@ -62,10 +64,11 @@ export default function Sidebar() {
               <IoSpeedometerOutline className="text-purpleColor text-lg" />
             </span>
             <span className="inline-block">داشبورد</span>
-          </a>
+          </Link>
         </li>
         <li className="pl-5 mb-1">
-          <a
+          <Link
+            to={"/Products"}
             href="javascript:void(0)"
             className="flex items-center whitespace-nowrap relative rounded-l-[100px] text-lightGray py-3 pr-2.5 pl-9 h-[46px] hover:bg-hoverColor  hover:text-white transition-colors duration-300 "
           >
@@ -73,10 +76,11 @@ export default function Sidebar() {
               <MdOutlineProductionQuantityLimits className="text-orangeColor text-lg" />
             </span>
             <span className="inline-block">محصولات</span>
-          </a>
+          </Link>
         </li>
         <li className="pl-5 mb-1">
-          <a
+          <Link
+            to={"/Users"}
             href="javascript:void(0)"
             className="flex items-center whitespace-nowrap relative rounded-l-[100px] text-lightGray py-3 pr-2.5 pl-9 h-[46px] hover:bg-hoverColor  hover:text-white transition-colors duration-300 "
           >
@@ -84,10 +88,11 @@ export default function Sidebar() {
               <FaUsers className="text-redColor text-lg" />
             </span>
             <span className="inline-block">کاربران</span>
-          </a>
+          </Link>
         </li>
         <li className="pl-5 mb-1">
-          <a
+          <Link
+            to={"/orders"}
             href="javascript:void(0)"
             className="flex items-center whitespace-nowrap relative rounded-l-[100px] text-lightGray py-3 pr-2.5 pl-9 h-[46px] hover:bg-hoverColor  hover:text-white transition-colors duration-300 "
           >
@@ -95,10 +100,11 @@ export default function Sidebar() {
               <RiShoppingBag3Fill className="text-blueColor text-lg" />
             </span>
             <span className="inline-block">سفارشات</span>
-          </a>
+          </Link>
         </li>
         <li className="pl-5 mb-1">
-          <a
+          <Link
+            to={"/comments"}
             href="javascript:void(0)"
             className="flex items-center whitespace-nowrap relative rounded-l-[100px] text-lightGray py-3 pr-2.5 pl-9 h-[46px] hover:bg-hoverColor  hover:text-white transition-colors duration-300 "
           >
@@ -106,10 +112,11 @@ export default function Sidebar() {
               <BiSolidCommentDetail className="text-purpleColor text-lg" />
             </span>
             <span className="inline-block">کامنت ها</span>
-          </a>
+          </Link>
         </li>
         <li className="pl-5 mb-1">
-          <a
+          <Link
+            to={"/discounts"}
             href="javascript:void(0)"
             className="flex items-center whitespace-nowrap relative rounded-l-[100px] text-lightGray py-3 pr-2.5 pl-9 h-[46px] hover:bg-hoverColor  hover:text-white transition-colors duration-300 "
           >
@@ -117,7 +124,7 @@ export default function Sidebar() {
               <BiSolidDiscount className="text-orangeColor text-lg" />
             </span>
             <span className="inline-block">تخفیف ها</span>
-          </a>
+          </Link>
         </li>
       </ul>
     </nav>
