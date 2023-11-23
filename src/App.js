@@ -8,7 +8,7 @@ function App() {
   return (
     <>
       <Sidebar />
-      <div className="pr-[250px]  py-20">
+      <div className="pr-[245px] py-24">
         <Header />
         {router}
       </div>
