@@ -10,16 +10,16 @@ import { BiSolidDiscount } from "react-icons/bi";
 
 export default function Sidebar() {
   return (
-    <nav className="fixed top-0 h-screen bg-grayColor w-[244px] z-10">
+    <nav className="fixed top-0 h-full overflow-auto bg-grayColor w-[244px] z-10">
       <div className="h-[70px] flex items-center">
-        <a href="javascript:void(0)" className="pr-4">
+        <a href="#" className="pr-4">
           <img
             src="https://technext.github.io/corona-free-dark-bootstrap-admin-template/assets/images/logo.svg"
             alt="logo"
             className="h-6 m-auto w-[124px] align-middle"
           />
         </a>
-        <a href="javascript:void(0)" className="pr-4 hidden">
+        <a href="#" className="pr-4 hidden">
           <img
             src="https://technext.github.io/corona-free-dark-bootstrap-admin-template/assets/images/logo-mini.svg"
             alt="logo"
@@ -46,7 +46,7 @@ export default function Sidebar() {
                 </span>
               </div>
             </div>
-            <a href="javascript:void(0)">
+            <a href="#">
               <BsThreeDotsVertical className="text-lightGray" />
             </a>
           </div>
@@ -57,7 +57,6 @@ export default function Sidebar() {
         <li className="pl-5 mb-1">
           <Link
             to={"/"}
-            href="javascript:void(0)"
             className="flex items-center whitespace-nowrap relative rounded-l-[100px] text-lightGray py-3 pr-2.5 pl-9 h-[46px] hover:bg-hoverColor  hover:text-white transition-colors duration-300 before:content-[''] before:w-[3px] before:h-full before:bg-blueColor before:inline-block before:absolute before:right-0 before:top-0"
           >
             <span className="ml-2 text-sm bg-[#22242E] w-8 h-8 rounded-full flex items-center justify-center">
@@ -69,7 +68,6 @@ export default function Sidebar() {
         <li className="pl-5 mb-1">
           <Link
             to={"/Products"}
-            href="javascript:void(0)"
             className="flex items-center whitespace-nowrap relative rounded-l-[100px] text-lightGray py-3 pr-2.5 pl-9 h-[46px] hover:bg-hoverColor  hover:text-white transition-colors duration-300 "
           >
             <span className="ml-2 text-sm bg-[#22242E] w-8 h-8 rounded-full flex items-center justify-center">
@@ -81,7 +79,6 @@ export default function Sidebar() {
         <li className="pl-5 mb-1">
           <Link
             to={"/Users"}
-            href="javascript:void(0)"
             className="flex items-center whitespace-nowrap relative rounded-l-[100px] text-lightGray py-3 pr-2.5 pl-9 h-[46px] hover:bg-hoverColor  hover:text-white transition-colors duration-300 "
           >
             <span className="ml-2 text-sm bg-[#22242E] w-8 h-8 rounded-full flex items-center justify-center">
@@ -93,7 +90,6 @@ export default function Sidebar() {
         <li className="pl-5 mb-1">
           <Link
             to={"/orders"}
-            href="javascript:void(0)"
             className="flex items-center whitespace-nowrap relative rounded-l-[100px] text-lightGray py-3 pr-2.5 pl-9 h-[46px] hover:bg-hoverColor  hover:text-white transition-colors duration-300 "
           >
             <span className="ml-2 text-sm bg-[#22242E] w-8 h-8 rounded-full flex items-center justify-center">
@@ -105,7 +101,6 @@ export default function Sidebar() {
         <li className="pl-5 mb-1">
           <Link
             to={"/comments"}
-            href="javascript:void(0)"
             className="flex items-center whitespace-nowrap relative rounded-l-[100px] text-lightGray py-3 pr-2.5 pl-9 h-[46px] hover:bg-hoverColor  hover:text-white transition-colors duration-300 "
           >
             <span className="ml-2 text-sm bg-[#22242E] w-8 h-8 rounded-full flex items-center justify-center">
@@ -117,7 +112,6 @@ export default function Sidebar() {
         <li className="pl-5 mb-1">
           <Link
             to={"/discounts"}
-            href="javascript:void(0)"
             className="flex items-center whitespace-nowrap relative rounded-l-[100px] text-lightGray py-3 pr-2.5 pl-9 h-[46px] hover:bg-hoverColor  hover:text-white transition-colors duration-300 "
           >
             <span className="ml-2 text-sm bg-[#22242E] w-8 h-8 rounded-full flex items-center justify-center">

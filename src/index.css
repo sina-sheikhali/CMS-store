@@ -3,7 +3,6 @@
 @tailwind utilities;
 
 /* Font face */
-
 @font-face {
   font-family: "Vazir";
   src: url("./fonts/Vazir.ttf");
@@ -114,6 +113,7 @@ section {
 }
 body {
   line-height: 1;
+  background: black;
 }
 ol,
 ul {

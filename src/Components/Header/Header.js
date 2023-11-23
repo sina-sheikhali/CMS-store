@@ -26,27 +26,24 @@ export default function Header() {
         </ul>
         <ul className="flex items-center mr-auto ">
           <li className="text-white whitespace-nowrap mx-1">
-            <a href="javascript:void(0)" className="block py-2 px-4 text-lg">
+            <a href="#" className="block py-2 px-4 text-lg">
               <HiViewGrid />
             </a>
           </li>
           <li className="text-white whitespace-nowrap mx-1 border-x border-solid border-[#2C2E33]">
-            <a
-              href="javascript:void(0)"
-              className="block py-2 px-4 text-lg relative"
-            >
+            <a href="#" className="block py-2 px-4 text-lg relative">
               <MdEmail />
               <span className="absolute right-4 top-2 w-2 h-2 rounded-full leading-6 border border-solid border-[#2c2e33] bg-greenColor"></span>
             </a>
           </li>
           <li className="text-white whitespace-nowrap mx-1">
-            <a href="javascript:void(0)" className="block py-2 px-4  relative">
+            <a href="#" className="block py-2 px-4  relative">
               <FaBell />
               <span className="absolute right-4 top-2 w-2 h-2 rounded-full leading-6 border border-solid border-[#2c2e33] bg-redColor"></span>
             </a>
           </li>
           <li className="block py-2 px-4 relative">
-            <a href="javascript:void(0)" className="mx-4">
+            <a href="#" className="mx-4">
               <div className="flex items-center">
                 <img
                   src="https://technext.github.io/corona-free-dark-bootstrap-admin-template/assets/images/faces/face15.jpg"
