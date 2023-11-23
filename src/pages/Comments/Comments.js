@@ -1,5 +1,10 @@
 import React from "react";
+import ErrorBox from "../../Components/ErrorBox/ErrorBox";
 
 export default function Comments() {
-  return <div>Comments</div>;
+  return (
+    <div>
+      <ErrorBox msg={"هیچ کامنتی یافت نشد!"} />
+    </div>
+  );
 }
