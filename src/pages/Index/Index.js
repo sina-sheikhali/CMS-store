@@ -16,7 +16,7 @@ import LatestTransAction from "../../Components/LatestTransAction/LatestTransAct
 export default function Index() {
   return (
     <div className="p-3">
-      <div className="grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3 xl:grid-cols-4  gap-5">
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4  gap-5">
         <FinancialBox
           Amount={"3,000,000"}
           percent={"7%-"}
