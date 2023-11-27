@@ -70,7 +70,7 @@ export default function ProductTable({ getAllProcuts, allProducts }) {
     { field: "count", headerName: "موجودی", width: 100, headerAlign: "center" },
     {
       field: "action",
-      headerName: "Action",
+      headerName: "عملیات",
       headerAlign: "center",
       width: 150,
       renderCell: (params) => {
@@ -214,6 +214,7 @@ export default function ProductTable({ getAllProcuts, allProducts }) {
       )}
       {isShowDeleteModal && (
         <DeleteModal
+          title={"آیا از حذف اطمینان دارید؟"}
           submitAction={submitActionDeleteModal}
           cancelAction={cancleActionDeleteModal}
         />
