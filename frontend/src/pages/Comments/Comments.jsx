@@ -58,7 +58,7 @@ export default function Comments() {
     {
       field: "action",
       headerName: "عملیات",
-      width: 210,
+      width: 200,
       headerAlign: "center",
       renderCell: (params) => {
         return (
@@ -82,9 +82,7 @@ export default function Comments() {
             >
               <HiMiniTrash />
             </button>
-            <button className="p-2  rounded-md bg-blueColor text-white  hover:bg-[#0090e7e6]">
-              پاسخ
-            </button>
+
             {params.row.isAccept == 0 ? (
               <button
                 className="p-2  rounded-md bg-purpleColor text-white hover:bg-[#8f5fe8d9] transition-colors"
@@ -122,7 +120,7 @@ export default function Comments() {
       .then((comments) => setAllComments(comments));
   };
 
-  const submitDeleteActionModal = () => {
+  const submitActionDeleteModal = () => {
     fetch(`http://localhost:8000/api/comments/${commentID}`, {
       method: "DELETE",
     })
@@ -236,7 +234,7 @@ export default function Comments() {
         <DeleteModal
           title={"آیا از حذف اطمینان دارید؟"}
           cancelAction={closeDeleteModal}
-          submitAction={submitDeleteActionModal}
+          submitAction={submitActionDeleteModal}
         ></DeleteModal>
       )}
 
