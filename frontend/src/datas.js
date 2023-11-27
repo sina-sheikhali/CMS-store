@@ -53,7 +53,7 @@ const newMembersData = [
   {
     id: 1,
     age: 25,
-    username: "reza@344",
+    username: "نام کاربری",
     profile:
       "https://technext.github.io/corona-free-dark-bootstrap-admin-template/assets/images/faces/face15.jpg",
   },

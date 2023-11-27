@@ -13,6 +13,7 @@ module.exports = {
         blueColor: "#0090E7",
         orangeColor: "#FFAB00",
         purpleColor: "#8F5FE8",
+        bgModal: "rgba(0,0,0,0.5)",
       },
     },
   },

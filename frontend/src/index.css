@@ -152,9 +152,11 @@ html,
   /* line-height: 1.6;
   font-size: 1.6rem; */
   font-family: var(--primary-font);
+}
+body {
+  display: flex;
   direction: rtl;
 }
-
 *,
 *::after,
 *::before {
