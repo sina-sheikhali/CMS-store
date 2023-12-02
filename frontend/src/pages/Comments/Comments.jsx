@@ -94,7 +94,7 @@ export default function Comments() {
               </button>
             ) : (
               <button
-                className="p-2  rounded-md bg-purpleColor text-white hover:bg-[#8f5fe8d9] transition-colors"
+                className="p-2 w-10  rounded-md bg-purpleColor text-white hover:bg-[#8f5fe8d9] transition-colors"
                 onClick={() => {
                   setIsShowRejectModal(true);
                   setCommentID(params.row.id);
