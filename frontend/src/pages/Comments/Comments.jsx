@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ErrorBox from "../../Components/ErrorBox/ErrorBox";
 import { DataGrid } from "@mui/x-data-grid";
-import { HiMiniInformationCircle } from "react-icons/hi2";
 import { HiMiniTrash } from "react-icons/hi2";
 import { FaEdit } from "react-icons/fa";
 import DetailsModal from "../../Components/DetailsModal/DetailsModal";
@@ -182,26 +181,26 @@ export default function Comments() {
           sx={{
             fontFamily: "Vazir",
             color: "#6c7293",
+            border: "1px solid #2c2e33",
 
-            "& .MuiDataGrid-cell ,": {
-              border: "1px solid #2c2e33",
+            "& .MuiDataGrid-cell": {
               justifyContent: "center",
             },
-            "& .MuiDataGrid-root": {
-              border: "2px solid #2c2e33",
-            },
+
             "& .MuiDataGrid-columnHeaders": {
               borderBottom: "1px solid #2c2e33",
             },
             "& .MuiDataGrid-footerContainer": {
               borderTop: "1px solid #2c2e33",
-
               direction: "rtl",
             },
 
             "& .MuiToolbar-root": {
               direction: "rtl",
               color: "white",
+            },
+            "& .MuiDataGrid-columnsContainer, .MuiDataGrid-cell": {
+              borderBottom: "1px solid #2c2e33",
             },
             "& .MuiTablePagination-actions": {
               direction: "ltr",

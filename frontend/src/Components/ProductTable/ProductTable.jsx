@@ -172,26 +172,25 @@ export default function ProductTable({ getAllProcuts, allProducts }) {
           sx={{
             fontFamily: "Vazir",
             color: "#6c7293",
-
-            "& .MuiDataGrid-cell ,": {
-              border: "1px solid #2c2e33",
+            border: "1px solid #2c2e33",
+            "& .MuiDataGrid-cell": {
               justifyContent: "center",
             },
-            "& .MuiDataGrid-root": {
-              border: "2px solid #2c2e33",
-            },
+
             "& .MuiDataGrid-columnHeaders": {
               borderBottom: "1px solid #2c2e33",
             },
             "& .MuiDataGrid-footerContainer": {
               borderTop: "1px solid #2c2e33",
-
               direction: "rtl",
             },
 
             "& .MuiToolbar-root": {
               direction: "rtl",
               color: "white",
+            },
+            "& .MuiDataGrid-columnsContainer, .MuiDataGrid-cell": {
+              borderBottom: "1px solid #2c2e33",
             },
             "& .MuiTablePagination-actions": {
               direction: "ltr",

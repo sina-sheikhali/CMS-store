@@ -46,7 +46,7 @@ export default function AddNewProduct({ getAllProducts }) {
   };
   return (
     <div className="bg-grayColor p-3">
-      <form className="grid grid-cols-2 gap-4 p-1 rounded-md">
+      <form className="grid grid-cols-2 gap-x-10 gap-y-5 p-1 rounded-md">
         <div className="flex flex-col gap-y-3 text-white">
           <label htmlFor="1" className="">
             عنوان
@@ -140,7 +140,7 @@ export default function AddNewProduct({ getAllProducts }) {
         </div>
         <div className="p-1 flex justify-end mt-12">
           <button
-            className="my-5 ml-5 bg-blueColor text-white transition-colors px-3 py-2 rounded-md font-bold text-lg hover:bg-[#0090e7d0]"
+            className="my-5 ml-5 bg-blueColor text-white transition-colors px-3 py-2 rounded-md font-bold sm:text-lg hover:bg-[#0090e7d0]"
             onClick={addNewProduct}
           >
             ثبت محصول

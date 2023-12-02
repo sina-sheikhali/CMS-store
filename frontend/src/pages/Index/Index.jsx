@@ -66,7 +66,7 @@ export default function Index() {
           </LineChart>
         </ResponsiveContainer>
       </div>
-      <div className="flex gap-5 w-full text-white  break-words ">
+      <div className="flex flex-col sm:flex-row  gap-5 w-full text-white  overflow-hidden ">
         <NewMembers />
         <LatestTransAction />
       </div>

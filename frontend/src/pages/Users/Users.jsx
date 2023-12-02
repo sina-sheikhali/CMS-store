@@ -81,7 +81,7 @@ export default function Users() {
       headerAlign: "center",
       renderCell: (params) => {
         return (
-          <div className="flex justify-center gap-4 w-full my-2">
+          <div className="flex justify-center gap-3 w-full my-2">
             <button
               className="p-2  rounded-md bg-blueColor text-white text-lg hover:bg-[#0090e7e6]"
               onClick={() => {
@@ -181,30 +181,28 @@ export default function Users() {
     <div className="flex flex-col gap-5 p-3">
       {allUsers.length ? (
         <DataGrid
-          getRowHeight={() => "auto"}
           sx={{
             fontFamily: "Vazir",
             color: "#6c7293",
-
+            border: "1px solid #2c2e33",
             "& .MuiDataGrid-cell ,": {
-              border: "1px solid #2c2e33",
               justifyContent: "center",
             },
-            "& .MuiDataGrid-root": {
-              border: "2px solid #2c2e33",
-            },
+
             "& .MuiDataGrid-columnHeaders": {
               borderBottom: "1px solid #2c2e33",
             },
             "& .MuiDataGrid-footerContainer": {
-              borderTop: "1px solid #2c2e33",
-
+              border: "none",
               direction: "rtl",
             },
 
             "& .MuiToolbar-root": {
               direction: "rtl",
               color: "white",
+            },
+            "& .MuiDataGrid-columnsContainer, .MuiDataGrid-cell": {
+              borderBottom: "1px solid #2c2e33",
             },
             "& .MuiTablePagination-actions": {
               direction: "ltr",
