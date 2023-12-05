@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
-import { DataGrid } from "@mui/x-data-grid";
 import ErrorBox from "../../Components/ErrorBox/ErrorBox";
 import DeleteModal from "../../Components/DeleteModal/DeleteModal";
 import { HiMiniTrash } from "react-icons/hi2";
+import GridTable from "../../Components/GridTable/GridTable";
 
 export default function Discounts() {
   const notify = (text, notif) => notif(text);
@@ -12,10 +12,7 @@ export default function Discounts() {
   const [isShowRejectModal, setIsShowRejectModal] = useState(false);
   const [isShowAcceptModal, setIsShowAcceptModal] = useState(false);
   const [discountID, setDiscountID] = useState();
-  const [paginationModel, setPaginationModel] = useState({
-    page: 0,
-    pageSize: 5,
-  });
+
   const columns = [
     { field: "id", headerName: "#", width: 50, headerAlign: "center" },
     {
@@ -176,48 +173,7 @@ export default function Discounts() {
   return (
     <div className="flex flex-col gap-5 p-3">
       {allDiscounts.length ? (
-        <DataGrid
-          getRowHeight={() => "auto"}
-          sx={{
-            fontFamily: "Vazir",
-            color: "#6c7293",
-            border: "1px solid #2c2e33",
-
-            "& .MuiDataGrid-cell": {
-              justifyContent: "center",
-            },
-
-            "& .MuiDataGrid-columnHeaders": {
-              borderBottom: "1px solid #2c2e33",
-            },
-            "& .MuiDataGrid-footerContainer": {
-              borderTop: "1px solid #2c2e33",
-              direction: "rtl",
-            },
-
-            "& .MuiToolbar-root": {
-              direction: "rtl",
-              color: "white",
-            },
-            "& .MuiDataGrid-columnsContainer, .MuiDataGrid-cell": {
-              borderBottom: "1px solid #2c2e33",
-            },
-            "& .MuiTablePagination-actions": {
-              direction: "ltr",
-            },
-            "& .MuiTablePagination-displayedRows": {
-              direction: "ltr",
-            },
-            "& .MuiButtonBase-root": {
-              color: "white",
-            },
-          }}
-          rows={allDiscounts}
-          columns={columns}
-          className="bg-grayColor"
-          paginationModel={paginationModel}
-          onPaginationModelChange={setPaginationModel}
-        ></DataGrid>
+        <GridTable rowData={allDiscounts} columnData={columns} />
       ) : (
         <ErrorBox msg={"هیچ کامنتی یافت نشد!"} />
       )}

@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
+import GridTable from "../../Components/GridTable/GridTable";
 import { ToastContainer, toast } from "react-toastify";
 import ErrorBox from "../../Components/ErrorBox/ErrorBox";
 import DeleteModal from "../../Components/DeleteModal/DeleteModal";
 import DetailsModal from "../../Components/DetailsModal/DetailsModal";
 import EditModal from "../../Components/EditModal/EditModal";
-import { DataGrid } from "@mui/x-data-grid";
 import { HiMiniInformationCircle } from "react-icons/hi2";
 import { HiMiniTrash } from "react-icons/hi2";
 import { FaEdit } from "react-icons/fa";
@@ -28,10 +28,6 @@ export default function Users() {
   const [score, setScore] = useState("");
   const [buy, setBuy] = useState("");
 
-  const [paginationModel, setPaginationModel] = useState({
-    page: 0,
-    pageSize: 5,
-  });
   const columns = [
     { field: "id", headerName: "#", width: 50, headerAlign: "center" },
     {
@@ -84,7 +80,7 @@ export default function Users() {
       headerAlign: "center",
       renderCell: (params) => {
         return (
-          <div className="flex justify-center gap-3 w-full my-2">
+          <div className="flex justify-center gap-3 w-full my-3">
             <button
               className="p-2  rounded-md bg-blueColor text-white text-lg hover:bg-[#0090e7e6]"
               onClick={() => {
@@ -194,46 +190,7 @@ export default function Users() {
   return (
     <div className="flex flex-col gap-5 p-3">
       {allUsers.length ? (
-        <DataGrid
-          sx={{
-            fontFamily: "Vazir",
-            color: "#6c7293",
-            border: "1px solid #2c2e33",
-            "& .MuiDataGrid-cell ,": {
-              justifyContent: "center",
-            },
-
-            "& .MuiDataGrid-columnHeaders": {
-              borderBottom: "1px solid #2c2e33",
-            },
-            "& .MuiDataGrid-footerContainer": {
-              border: "none",
-              direction: "rtl",
-            },
-
-            "& .MuiToolbar-root": {
-              direction: "rtl",
-              color: "white",
-            },
-            "& .MuiDataGrid-columnsContainer, .MuiDataGrid-cell": {
-              borderBottom: "1px solid #2c2e33",
-            },
-            "& .MuiTablePagination-actions": {
-              direction: "ltr",
-            },
-            "& .MuiTablePagination-displayedRows": {
-              direction: "ltr",
-            },
-            "& .MuiButtonBase-root": {
-              color: "white",
-            },
-          }}
-          rows={allUsers}
-          columns={columns}
-          className="bg-grayColor"
-          paginationModel={paginationModel}
-          onPaginationModelChange={setPaginationModel}
-        ></DataGrid>
+        <GridTable rowData={allUsers} columnData={columns} />
       ) : (
         <ErrorBox msg={"هیچ کاربری یافت نشد!"} />
       )}

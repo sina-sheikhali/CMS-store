@@ -14,7 +14,7 @@ export default function Sidebar({ openSidebar }) {
       <nav
         className={`fixed top-[70px] lg:top-0 ${
           openSidebar ? "right-[-244px] lg:right-[-200px]" : "right-0"
-        } h-full overflow-auto bg-grayColor w-[244px] z-10 transition-all duration-300`}
+        } h-full overflow-auto bg-grayColor w-[244px] z-10 transition-all duration-300  scrollbar-thin scrollbar-thumb-green-300`}
       >
         <div className="h-[70px]  hidden lg:flex items-center">
           <a href="#" className="pr-4">
@@ -31,9 +31,9 @@ export default function Sidebar({ openSidebar }) {
               <div className="flex items-center">
                 <div className="relative">
                   <img
-                    src="https://technext.github.io/corona-free-dark-bootstrap-admin-template/assets/images/faces/face15.jpg"
+                    src="/img/profile1.jpg"
                     alt="profile"
-                    className="h-9 w-9 rounded-full"
+                    className="h-9 w-9 rounded-full object-cover"
                   />
                   <span className="absolute left-[66%] top-[26px] w-2.5 h-2.5 rounded-full leading-6 border border-solid border-[#2c2e33] bg-greenColor"></span>
                 </div>
@@ -141,7 +141,7 @@ export default function Sidebar({ openSidebar }) {
               <div className="flex items-center">
                 <div className="relative">
                   <img
-                    src="https://technext.github.io/corona-free-dark-bootstrap-admin-template/assets/images/faces/face15.jpg"
+                    src="/img/profile1.jpg"
                     alt="profile"
                     className="h-9 w-9 rounded-full object-cover"
                   />

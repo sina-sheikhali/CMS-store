@@ -33,7 +33,7 @@ export default function NewMembers() {
                   <img
                     src={member.profile}
                     alt="profile"
-                    className="h-9 w-9 rounded-full"
+                    className="h-10 w-10 rounded-full object-cover"
                   />
                 </td>
                 <td

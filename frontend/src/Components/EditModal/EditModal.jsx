@@ -15,7 +15,7 @@ export default function EditModal({ children, onSubmit, onClose }) {
   });
   return ReactDOM.createPortal(
     <div className="fixed bg-bgModal top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%] w-full h-screen flex items-center justify-center z-20 transition-opacity">
-      <form className="bg-grayColor p-10 rounded-sm flex flex-col gap-y-5 w-5/6 md:w-1/2 lg:1/3  max-h-[90%] overflow-y-auto relative">
+      <form className="bg-grayColor p-10 rounded-sm flex flex-col gap-y-5 w-5/6 md:w-1/2 lg:1/3  max-h-[90%] overflow-y-auto relative  scrollbar-thin scrollbar-thumb-slate-400">
         <div className="flex justify-between items-start absolute top-0 right-0 w-full">
           <button className="text-xl bg-red-500" onClick={() => onClose()}>
             <IoIosClose className="text-white" />

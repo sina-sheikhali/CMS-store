@@ -63,9 +63,9 @@ export default function Header({ isOpen, setIsOpen }) {
               <a href="#" className="flex w-full">
                 <div className="flex items-center justify-center w-full ">
                   <img
-                    src="https://technext.github.io/corona-free-dark-bootstrap-admin-template/assets/images/faces/face15.jpg"
+                    src="/img/profile1.jpg"
                     alt="profile"
-                    className="h-9 w-9 rounded-full"
+                    className="h-9 w-9 rounded-full object-cover"
                   />
                   <span className="text-sm block whitespace-nowrap mr-4">
                     علی قربانی

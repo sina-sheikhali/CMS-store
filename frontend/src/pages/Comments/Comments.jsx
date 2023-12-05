@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import ErrorBox from "../../Components/ErrorBox/ErrorBox";
-import { DataGrid } from "@mui/x-data-grid";
+import GridTable from "../../Components/GridTable/GridTable";
 import { HiMiniTrash } from "react-icons/hi2";
 import { FaEdit } from "react-icons/fa";
 import DetailsModal from "../../Components/DetailsModal/DetailsModal";
@@ -17,10 +17,6 @@ export default function Comments() {
   const [isShowRejectModal, setIsShowRejectModal] = useState(false);
   const [commentID, setCommentID] = useState(null);
   const [mainCommentBody, setMainCommentBody] = useState("");
-  const [paginationModel, setPaginationModel] = useState({
-    page: 0,
-    pageSize: 5,
-  });
   const columns = [
     { field: "id", headerName: "#", width: 50, headerAlign: "center" },
     {
@@ -198,48 +194,7 @@ export default function Comments() {
   return (
     <div className="flex flex-col gap-5 p-3">
       {allComments.length ? (
-        <DataGrid
-          getRowHeight={() => "auto"}
-          sx={{
-            fontFamily: "Vazir",
-            color: "#6c7293",
-            border: "1px solid #2c2e33",
-
-            "& .MuiDataGrid-cell": {
-              justifyContent: "center",
-            },
-
-            "& .MuiDataGrid-columnHeaders": {
-              borderBottom: "1px solid #2c2e33",
-            },
-            "& .MuiDataGrid-footerContainer": {
-              borderTop: "1px solid #2c2e33",
-              direction: "rtl",
-            },
-
-            "& .MuiToolbar-root": {
-              direction: "rtl",
-              color: "white",
-            },
-            "& .MuiDataGrid-columnsContainer, .MuiDataGrid-cell": {
-              borderBottom: "1px solid #2c2e33",
-            },
-            "& .MuiTablePagination-actions": {
-              direction: "ltr",
-            },
-            "& .MuiTablePagination-displayedRows": {
-              direction: "ltr",
-            },
-            "& .MuiButtonBase-root": {
-              color: "white",
-            },
-          }}
-          rows={allComments}
-          columns={columns}
-          className="bg-grayColor"
-          paginationModel={paginationModel}
-          onPaginationModelChange={setPaginationModel}
-        ></DataGrid>
+        <GridTable rowData={allComments} columnData={columns} />
       ) : (
         <ErrorBox msg={"هیچ کامنتی یافت نشد!"} />
       )}

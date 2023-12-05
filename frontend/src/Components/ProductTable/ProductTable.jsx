@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
-import { DataGrid } from "@mui/x-data-grid";
+import GridTable from "../../Components/GridTable/GridTable";
 import ErrorBox from "../ErrorBox/ErrorBox";
 import DeleteModal from "../../Components/DeleteModal/DeleteModal";
 import DetailsModal from "../DetailsModal/DetailsModal";
@@ -22,11 +22,6 @@ export default function ProductTable({ getAllProcuts, allProducts }) {
   const [productNewColors, setProductNewColors] = useState();
   const [productNewSale, setProductNewSale] = useState();
   const [productNewImg, setProductNewImg] = useState();
-
-  const [paginationModel, setPaginationModel] = useState({
-    page: 0,
-    pageSize: 5,
-  });
   const columns = [
     { field: "id", headerName: "#", width: 50, headerAlign: "center" },
     {
@@ -177,47 +172,7 @@ export default function ProductTable({ getAllProcuts, allProducts }) {
   return (
     <>
       {allProducts.length ? (
-        <DataGrid
-          getRowHeight={() => "auto"}
-          sx={{
-            fontFamily: "Vazir",
-            color: "#6c7293",
-            border: "1px solid #2c2e33",
-            "& .MuiDataGrid-cell": {
-              justifyContent: "center",
-            },
-
-            "& .MuiDataGrid-columnHeaders": {
-              borderBottom: "1px solid #2c2e33",
-            },
-            "& .MuiDataGrid-footerContainer": {
-              borderTop: "1px solid #2c2e33",
-              direction: "rtl",
-            },
-
-            "& .MuiToolbar-root": {
-              direction: "rtl",
-              color: "white",
-            },
-            "& .MuiDataGrid-columnsContainer, .MuiDataGrid-cell": {
-              borderBottom: "1px solid #2c2e33",
-            },
-            "& .MuiTablePagination-actions": {
-              direction: "ltr",
-            },
-            "& .MuiTablePagination-displayedRows": {
-              direction: "ltr",
-            },
-            "& .MuiButtonBase-root": {
-              color: "white",
-            },
-          }}
-          rows={allProducts}
-          columns={columns}
-          className="bg-grayColor"
-          paginationModel={paginationModel}
-          onPaginationModelChange={setPaginationModel}
-        ></DataGrid>
+        <GridTable rowData={allProducts} columnData={columns} />
       ) : (
         <ErrorBox msg={"هیچ محصولی یافت نشد"} />
       )}
