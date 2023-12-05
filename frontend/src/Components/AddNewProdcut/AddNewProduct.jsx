@@ -1,6 +1,7 @@
-import React, { useState } from "react";
-
+import { useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
 export default function AddNewProduct({ getAllProducts }) {
+  const notify = (text, notif) => notif(text);
   const [newProductTitle, setNewProductTitle] = useState("");
   const [newProductPrice, setNewProductPrice] = useState("");
   const [newProductCount, setNewProductCount] = useState("");
@@ -42,6 +43,10 @@ export default function AddNewProduct({ getAllProducts }) {
       .then((result) => {
         getAllProducts();
         emptyProducts();
+        notify("محصول با موفقیت اضافه شد", toast.success);
+      })
+      .catch((err) => {
+        notify("خطایی رخ داده است", toast.error);
       });
   };
   return (
@@ -147,6 +152,7 @@ export default function AddNewProduct({ getAllProducts }) {
           </button>
         </div>
       </form>
+      <ToastContainer rtl="true" autoClose={3000} />
     </div>
   );
 }

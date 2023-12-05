@@ -4,7 +4,7 @@ import { IoIosClose } from "react-icons/io";
 export default function DetailsModal({ onClose, children }) {
   useEffect(() => {
     const checkKey = (event) => {
-      if (event.keyCode == 27) {
+      if (event.keyCode === 27) {
         onClose();
       }
     };

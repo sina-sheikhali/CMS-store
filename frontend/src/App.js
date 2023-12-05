@@ -1,5 +1,5 @@
 import Header from "./Components/Header/Header";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Sidebar from "./Components/Sidebar/Sidebar";
 import { useRoutes } from "react-router-dom";
 import routes from "./routes";

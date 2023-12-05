@@ -30,7 +30,7 @@ export default function LatestTransAction() {
               <tr className="table-row" key={action.id}>
                 <td
                   className={`${
-                    action.id == latestTransActionData.length
+                    action.id === latestTransActionData.length
                       ? null
                       : "border-b border-solid border-[#2c2e33]"
                   } px-8 py-4 align-middle  table-cell font-bold whitespace-nowrap text-sm leading-4 text-center`}
@@ -43,7 +43,7 @@ export default function LatestTransAction() {
                 </td>
                 <td
                   className={`${
-                    action.id == latestTransActionData.length
+                    action.id === latestTransActionData.length
                       ? null
                       : "border-b border-solid border-[#2c2e33]"
                   } px-8 py-4 align-middle  table-cell font-bold whitespace-nowrap text-sm leading-4 text-center`}
@@ -52,7 +52,7 @@ export default function LatestTransAction() {
                 </td>
                 <td
                   className={`${
-                    action.id == latestTransActionData.length
+                    action.id === latestTransActionData.length
                       ? null
                       : "border-b border-solid border-[#2c2e33]"
                   } px-8 py-4 align-middle  table-cell font-bold whitespace-nowrap text-sm leading-4 text-center`}
@@ -61,7 +61,7 @@ export default function LatestTransAction() {
                 </td>
                 <td
                   className={`${
-                    action.id == latestTransActionData.length
+                    action.id === latestTransActionData.length
                       ? null
                       : "border-b border-solid border-[#2c2e33]"
                   } px-8 py-4 align-middle  table-cell font-bold whitespace-nowrap text-sm leading-4 text-center`}
@@ -71,27 +71,27 @@ export default function LatestTransAction() {
                 </td>
                 <td
                   className={`${
-                    action.id == latestTransActionData.length
+                    action.id === latestTransActionData.length
                       ? null
                       : "border-b border-solid border-[#2c2e33]"
                   } px-8 py-4 align-middle  table-cell font-bold whitespace-nowrap text-sm leading-4 text-center`}
                 >
-                  {action.status == 0 && (
+                  {action.status === 0 && (
                     <span className="px-3 py-1 rounded-md text-xs text-white bg-redColor">
                       لغو شده
                     </span>
                   )}
-                  {action.status == 1 && (
+                  {action.status === 1 && (
                     <span className="px-3 py-1 rounded-md text-xs text-white bg-orangeColor">
                       در انتظار پرداخت
                     </span>
                   )}
-                  {action.status == 2 && (
+                  {action.status === 2 && (
                     <span className="px-3 py-1 rounded-md text-xs text-white bg-purpleColor">
                       در حال پردازش
                     </span>
                   )}
-                  {action.status == 3 && (
+                  {action.status === 3 && (
                     <span className="px-3 py-1 rounded-md text-xs text-white bg-greenColor">
                       موفقیت آمیز
                     </span>

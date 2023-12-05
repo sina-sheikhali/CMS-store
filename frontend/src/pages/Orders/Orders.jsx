@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
 import { DataGrid } from "@mui/x-data-grid";
 import ErrorBox from "../../Components/ErrorBox/ErrorBox";
 import DeleteModal from "../../Components/DeleteModal/DeleteModal";
 import { HiMiniTrash } from "react-icons/hi2";
 
 export default function Orders() {
+  const notify = (text, notif) => notif(text);
   const [allOrders, setAllOrders] = useState([]);
   const [isShowDeleteModal, setIsShowDeleteModal] = useState(false);
   const [isShowRejectModal, setIsShowRejectModal] = useState(false);
@@ -58,7 +60,7 @@ export default function Orders() {
           <>
             {params.row.isActive === 0 ? (
               <span className="px-3 py-1 rounded-md text-sm font-bold text-white bg-orangeColor">
-                رد شده
+                لغو شده
               </span>
             ) : (
               <span className="px-3 py-1 rounded-md text-sm font-bold text-white bg-greenColor">
@@ -104,7 +106,7 @@ export default function Orders() {
                   setOrderID(params.row.id);
                 }}
               >
-                رد
+                لغو
               </button>
             )}
           </div>
@@ -132,6 +134,11 @@ export default function Orders() {
       .then((result) => {
         setIsShowDeleteModal(false);
         getAllOrders();
+        notify("سفارش با موفقیت حذف شد", toast.success);
+      })
+      .catch((err) => {
+        setIsShowDeleteModal(false);
+        notify("خطایی رخ داده است", toast.error);
       });
   };
 
@@ -143,6 +150,11 @@ export default function Orders() {
       .then((result) => {
         setIsShowAcceptModal(false);
         getAllOrders();
+        notify("سفارش مورد نظر تایید شد", toast.success);
+      })
+      .catch((err) => {
+        setIsShowAcceptModal(false);
+        notify("خطایی رخ داده است", toast.error);
       });
   };
   const rejectOrder = () => {
@@ -153,6 +165,11 @@ export default function Orders() {
       .then((result) => {
         setIsShowRejectModal(false);
         getAllOrders();
+        notify("سفارش مورد نظر لغو شد", toast.warn);
+      })
+      .catch((err) => {
+        setIsShowRejectModal(false);
+        notify("خطایی رخ داده است", toast.error);
       });
   };
   const closeDeleteModal = () => setIsShowDeleteModal(false);
@@ -230,6 +247,7 @@ export default function Orders() {
           submitAction={rejectOrder}
         ></DeleteModal>
       )}
+      <ToastContainer rtl="true" autoClose={3000} />
     </div>
   );
 }

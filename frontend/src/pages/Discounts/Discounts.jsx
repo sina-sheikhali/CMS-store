@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
 import { DataGrid } from "@mui/x-data-grid";
 import ErrorBox from "../../Components/ErrorBox/ErrorBox";
 import DeleteModal from "../../Components/DeleteModal/DeleteModal";
 import { HiMiniTrash } from "react-icons/hi2";
 
 export default function Discounts() {
+  const notify = (text, notif) => notif(text);
   const [allDiscounts, setAllDiscounts] = useState([]);
   const [isShowDeleteModal, setIsShowDeleteModal] = useState(false);
   const [isShowRejectModal, setIsShowRejectModal] = useState(false);
@@ -101,7 +103,7 @@ export default function Discounts() {
                   setDiscountID(params.row.id);
                 }}
               >
-                رد
+                لغو
               </button>
             )}
           </div>
@@ -133,6 +135,11 @@ export default function Discounts() {
       .then((result) => {
         getAllDiscounts();
         setIsShowDeleteModal(false);
+        notify("کد تخفیف مورد نظر حذف شد", toast.success);
+      })
+      .catch((err) => {
+        setIsShowDeleteModal(false);
+        notify("خطایی رخ داده است", toast.error);
       });
   };
 
@@ -144,6 +151,11 @@ export default function Discounts() {
       .then((result) => {
         getAllDiscounts();
         setIsShowAcceptModal(false);
+        notify("کد تخفیف مورد نظر فعال شد", toast.success);
+      })
+      .catch((err) => {
+        setIsShowAcceptModal(false);
+        notify("خطایی رخ داده است", toast.error);
       });
   };
   const rejectDiscount = () => {
@@ -154,6 +166,11 @@ export default function Discounts() {
       .then((result) => {
         getAllDiscounts();
         setIsShowRejectModal(false);
+        notify("کد تخفیف مورد نظر غیرفعال شد", toast.warn);
+      })
+      .catch((err) => {
+        setIsShowRejectModal(false);
+        notify("خطایی رخ داده است", toast.error);
       });
   };
   return (
@@ -227,6 +244,7 @@ export default function Discounts() {
           submitAction={rejectDiscount}
         ></DeleteModal>
       )}
+      <ToastContainer rtl="true" autoClose={3000} />
     </div>
   );
 }

@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import { useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
 import { DataGrid } from "@mui/x-data-grid";
 import ErrorBox from "../ErrorBox/ErrorBox";
 import DeleteModal from "../../Components/DeleteModal/DeleteModal";
@@ -8,6 +9,7 @@ import { HiMiniInformationCircle } from "react-icons/hi2";
 import { HiMiniTrash } from "react-icons/hi2";
 import { FaEdit } from "react-icons/fa";
 export default function ProductTable({ getAllProcuts, allProducts }) {
+  const notify = (text, notif) => notif(text);
   const [isShowDeleteModal, setIsShowDeleteModal] = useState(false);
   const [isShowDetailsModal, setIShowDetailsModal] = useState(false);
   const [isShowEditModal, setIShowEditModal] = useState(false);
@@ -124,8 +126,12 @@ export default function ProductTable({ getAllProcuts, allProducts }) {
       .then((result) => {
         setIsShowDeleteModal(false);
         getAllProcuts();
+        notify("عملیات با موفقیت انجام شد", toast.success);
       })
-      .catch((err) => {});
+      .catch((err) => {
+        setIsShowDeleteModal(false);
+        notify("خطایی رخ داده است", toast.error);
+      });
   };
   const cancleActionDeleteModal = () => {
     setIsShowDeleteModal(false);
@@ -161,6 +167,10 @@ export default function ProductTable({ getAllProcuts, allProducts }) {
       .then((result) => {
         getAllProcuts();
         setIShowEditModal(false);
+        notify("عملیات با موفقیت انجام شد", toast.success);
+      })
+      .catch((err) => {
+        notify("خطایی رخ داده است", toast.error);
       });
   };
 
@@ -375,6 +385,7 @@ export default function ProductTable({ getAllProcuts, allProducts }) {
           </div>
         </EditModal>
       )}
+      <ToastContainer rtl="true" autoClose={3000} />
     </>
   );
 }

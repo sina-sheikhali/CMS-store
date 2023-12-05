@@ -25,7 +25,7 @@ export default function NewMembers() {
               <tr className="table-row" key={member.id}>
                 <td
                   className={`${
-                    member.id == newMembersData.length
+                    member.id === newMembersData.length
                       ? null
                       : "border-b border-solid border-[#2c2e33]"
                   } px-8 py-4  align-middle  table-cell font-bold whitespace-nowrap text-sm leading-4 text-center`}
@@ -38,7 +38,7 @@ export default function NewMembers() {
                 </td>
                 <td
                   className={`${
-                    member.id == newMembersData.length
+                    member.id === newMembersData.length
                       ? null
                       : "border-b border-solid border-[#2c2e33]"
                   } px-8 py-4  align-middle  table-cell font-bold whitespace-nowrap text-sm leading-4 text-center`}
@@ -47,7 +47,7 @@ export default function NewMembers() {
                 </td>
                 <td
                   className={`${
-                    member.id == newMembersData.length
+                    member.id === newMembersData.length
                       ? null
                       : "border-b border-solid border-[#2c2e33]"
                   } px-8 py-4  align-middle  table-cell font-bold whitespace-nowrap text-sm leading-4 text-center`}

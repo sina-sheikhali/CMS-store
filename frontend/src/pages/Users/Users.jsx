@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
 import ErrorBox from "../../Components/ErrorBox/ErrorBox";
 import DeleteModal from "../../Components/DeleteModal/DeleteModal";
 import DetailsModal from "../../Components/DetailsModal/DetailsModal";
@@ -8,6 +9,8 @@ import { HiMiniInformationCircle } from "react-icons/hi2";
 import { HiMiniTrash } from "react-icons/hi2";
 import { FaEdit } from "react-icons/fa";
 export default function Users() {
+  const notify = (text, notif) => notif(text);
+
   const [allUsers, setAllUsers] = useState([]);
   const [isShowDeleteModal, setIsShowDeleteModal] = useState(false);
   const [isShowDetailsModal, setIsShowDetailsModal] = useState(false);
@@ -129,14 +132,6 @@ export default function Users() {
   const closeDetailsModal = () => setIsShowDetailsModal(false);
   const closeEditModal = () => setIsShowEditModal(false);
 
-  const submitActionDeleteModal = () => {
-    fetch(`http://localhost:8000/api/users/${userID}`, { method: "DELETE" })
-      .then((respons) => respons.json())
-      .then((result) => {
-        getAllUsers();
-        setIsShowDeleteModal(false);
-      });
-  };
   const getAllUsers = () => {
     fetch("http://localhost:8000/api/users/")
       .then((respons) => respons.json())
@@ -145,6 +140,24 @@ export default function Users() {
       });
   };
 
+  const submitActionDeleteModal = () => {
+    fetch(`http://localhost:8000/api/users/${userID}`, {
+      method: "DELETE",
+    })
+      .then((respons) => respons.json())
+      .then((result) => {
+        getAllUsers();
+        setIsShowDeleteModal(false);
+        notify("کاربر با موفقیت حذف شد", toast.success);
+      })
+      .catch((err) => {
+        setIsShowDeleteModal(false);
+        notify("خطایی رخ داده است", toast.error);
+      });
+  };
+  useEffect(() => {
+    getAllUsers();
+  }, []);
   const updateUserInfos = (event) => {
     event.preventDefault();
     const userNewInfos = {
@@ -171,11 +184,12 @@ export default function Users() {
       .then((result) => {
         getAllUsers();
         setIsShowEditModal(false);
+        notify("عملیات با موفقیت انجام شد", toast.success);
+      })
+      .catch((err) => {
+        notify("خطایی رخ داده است", toast.error);
       });
   };
-  useEffect(() => {
-    getAllUsers();
-  }, []);
 
   return (
     <div className="flex flex-col gap-5 p-3">
@@ -446,6 +460,7 @@ export default function Users() {
           </table>
         </DetailsModal>
       )}
+      <ToastContainer rtl="true" autoClose={3000} />
     </div>
   );
 }

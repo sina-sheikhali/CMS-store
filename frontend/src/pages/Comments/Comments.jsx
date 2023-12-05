@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
 import ErrorBox from "../../Components/ErrorBox/ErrorBox";
 import { DataGrid } from "@mui/x-data-grid";
 import { HiMiniTrash } from "react-icons/hi2";
@@ -7,6 +8,7 @@ import DetailsModal from "../../Components/DetailsModal/DetailsModal";
 import DeleteModal from "../../Components/DeleteModal/DeleteModal";
 import EditModal from "../../Components/EditModal/EditModal";
 export default function Comments() {
+  const notify = (text, notif) => notif(text);
   const [allComments, setAllComments] = useState([]);
   const [isShowDetailsModal, setIsShowDetailsModal] = useState(false);
   const [isShowDeleteModal, setIsShowDeleteModal] = useState(false);
@@ -82,7 +84,7 @@ export default function Comments() {
               <HiMiniTrash />
             </button>
 
-            {params.row.isAccept == 0 ? (
+            {params.row.isAccept === 0 ? (
               <button
                 className="p-2  rounded-md bg-purpleColor text-white hover:bg-[#8f5fe8d9] transition-colors"
                 onClick={() => {
@@ -127,6 +129,11 @@ export default function Comments() {
       .then((result) => {
         setIsShowDeleteModal(false);
         getAllComments();
+        notify("کامنت با موفقیت حذف شد", toast.success);
+      })
+      .catch((err) => {
+        setIsShowDeleteModal(false);
+        notify("خطایی رخ داده است", toast.error);
       });
   };
   const updateComment = (event) => {
@@ -144,6 +151,11 @@ export default function Comments() {
       .then((result) => {
         getAllComments();
         setIsShowEditModal(false);
+        notify("کامنت مورد نظر اصلاح شد", toast.success);
+      })
+      .catch((err) => {
+        setIsShowEditModal(false);
+        notify("خطایی رخ داده است", toast.error);
       });
   };
 
@@ -155,6 +167,11 @@ export default function Comments() {
       .then((result) => {
         setIsShowAcceptModal(false);
         getAllComments();
+        notify("کامنت مورد نظر تایید شد", toast.success);
+      })
+      .catch((err) => {
+        setIsShowAcceptModal(false);
+        notify("خطایی رخ داده است", toast.error);
       });
   };
   const rejectComment = () => {
@@ -165,6 +182,11 @@ export default function Comments() {
       .then((result) => {
         setIsShowRejectModal(false);
         getAllComments();
+        notify("کامنت مورد نظر رد شد", toast.warn);
+      })
+      .catch((err) => {
+        setIsShowRejectModal(false);
+        notify("خطایی رخ داده است", toast.error);
       });
   };
   const closeDetailsModal = () => setIsShowDetailsModal(false);
@@ -262,6 +284,7 @@ export default function Comments() {
           submitAction={rejectComment}
         ></DeleteModal>
       )}
+      <ToastContainer rtl="true" autoClose={3000} />
     </div>
   );
 }
