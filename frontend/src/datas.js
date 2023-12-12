@@ -54,31 +54,31 @@ const newMembersData = [
     id: 1,
     age: 25,
     username: "reza.mo80",
-    profile: "/img/prf2.jpg",
+    profile: "img/prf2.jpg",
   },
   {
     id: 2,
     age: 20,
     username: "alihasani81",
-    profile: "/img/prf3.jpg",
+    profile: "img/prf3.jpg",
   },
   {
     id: 3,
     age: 18,
     username: "moh.9012",
-    profile: "/img/prf4.jpg",
+    profile: "img/prf4.jpg",
   },
   {
     id: 4,
     age: 30,
     username: "zahra@005",
-    profile: "/img/prf5.jpg",
+    profile: "img/prf5.jpg",
   },
   {
     id: 5,
     age: 33,
     username: "mahsa-8181",
-    profile: "/img/prf6.jpg",
+    profile: "img/prf6.jpg",
   },
 ];
 
@@ -86,7 +86,7 @@ const latestTransActionData = [
   {
     id: 1,
     username: "sinaKH20",
-    profile: "/img/prf3.jpg",
+    profile: "img/prf3.jpg",
     date: "1402/12/05",
     status: 3,
     amount: "150,000",
@@ -94,7 +94,7 @@ const latestTransActionData = [
   {
     id: 2,
     username: "ali_Rahimii",
-    profile: "/img/prf4.jpg",
+    profile: "img/prf4.jpg",
     date: "1402/03/10",
     status: 2,
     amount: "2,520,000",
@@ -102,7 +102,7 @@ const latestTransActionData = [
   {
     id: 3,
     username: "samin.karami66",
-    profile: "/img/prf2.jpg",
+    profile: "img/prf2.jpg",
     date: "1402/08/29",
     status: 1,
     amount: "782,000",
@@ -110,7 +110,7 @@ const latestTransActionData = [
   {
     id: 4,
     username: "hosein-234",
-    profile: "/img/prf4.jpg",
+    profile: "img/prf4.jpg",
     date: "1402/05/01",
     status: 3,
     amount: "1,150,000",
@@ -118,7 +118,7 @@ const latestTransActionData = [
   {
     id: 5,
     username: "reza.kermani",
-    profile: "/img/prf3.jpg",
+    profile: "img/prf3.jpg",
     date: "1402/09/10",
     status: 0,
     amount: "58,000",

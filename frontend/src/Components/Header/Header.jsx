@@ -63,7 +63,7 @@ export default function Header({ isOpen, setIsOpen }) {
               <a href="#" className="flex w-full">
                 <div className="flex items-center justify-center w-full ">
                   <img
-                    src="/img/profile1.jpg"
+                    src="img/profile1.jpg"
                     alt="profile"
                     className="h-9 w-9 rounded-full object-cover"
                   />

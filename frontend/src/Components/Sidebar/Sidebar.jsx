@@ -31,7 +31,7 @@ export default function Sidebar({ openSidebar }) {
               <div className="flex items-center">
                 <div className="relative">
                   <img
-                    src="/img/profile1.jpg"
+                    src="img/profile1.jpg"
                     alt="profile"
                     className="h-9 w-9 rounded-full object-cover"
                   />
@@ -141,7 +141,7 @@ export default function Sidebar({ openSidebar }) {
               <div className="flex items-center">
                 <div className="relative">
                   <img
-                    src="/img/profile1.jpg"
+                    src="img/profile1.jpg"
                     alt="profile"
                     className="h-9 w-9 rounded-full object-cover"
                   />
