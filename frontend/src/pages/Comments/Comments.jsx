@@ -7,6 +7,7 @@ import { FaEdit } from "react-icons/fa";
 import DetailsModal from "../../Components/DetailsModal/DetailsModal";
 import DeleteModal from "../../Components/DeleteModal/DeleteModal";
 import EditModal from "../../Components/EditModal/EditModal";
+import baseURL from "../../api";
 export default function Comments() {
   const notify = (text, notif) => notif(text);
   const [allComments, setAllComments] = useState([]);
@@ -112,13 +113,13 @@ export default function Comments() {
   }, []);
 
   const getAllComments = () => {
-    fetch("http://localhost:8000/api/comments")
+    fetch(`${baseURL}comments`)
       .then((respons) => respons.json())
       .then((comments) => setAllComments(comments));
   };
 
   const submitActionDeleteModal = () => {
-    fetch(`http://localhost:8000/api/comments/${commentID}`, {
+    fetch(`${baseURL}comments/${commentID}`, {
       method: "DELETE",
     })
       .then((respons) => respons.json())
@@ -134,7 +135,7 @@ export default function Comments() {
   };
   const updateComment = (event) => {
     event.preventDefault();
-    fetch(`http://localhost:8000/api/comments/${commentID}`, {
+    fetch(`${baseURL}comments/${commentID}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -156,7 +157,7 @@ export default function Comments() {
   };
 
   const submitComment = () => {
-    fetch(`http://localhost:8000/api/comments/accept/${commentID}`, {
+    fetch(`${baseURL}comments/accept/${commentID}`, {
       method: "POST",
     })
       .then((respons) => respons.json())
@@ -171,7 +172,7 @@ export default function Comments() {
       });
   };
   const rejectComment = () => {
-    fetch(`http://localhost:8000/api/comments/reject/${commentID}`, {
+    fetch(`${baseURL}comments/reject/${commentID}`, {
       method: "POST",
     })
       .then((respons) => respons.json())

@@ -8,6 +8,7 @@ import EditModal from "../../Components/EditModal/EditModal";
 import { HiMiniInformationCircle } from "react-icons/hi2";
 import { HiMiniTrash } from "react-icons/hi2";
 import { FaEdit } from "react-icons/fa";
+import baseURL from "../../api";
 export default function Users() {
   const notify = (text, notif) => notif(text);
 
@@ -129,7 +130,7 @@ export default function Users() {
   const closeEditModal = () => setIsShowEditModal(false);
 
   const getAllUsers = () => {
-    fetch("http://localhost:8000/api/users/")
+    fetch(`${baseURL}users/`)
       .then((respons) => respons.json())
       .then((result) => {
         setAllUsers(result);
@@ -137,7 +138,7 @@ export default function Users() {
   };
 
   const submitActionDeleteModal = () => {
-    fetch(`http://localhost:8000/api/users/${userID}`, {
+    fetch(`${baseURL}users/${userID}`, {
       method: "DELETE",
     })
       .then((respons) => respons.json())
@@ -169,7 +170,7 @@ export default function Users() {
       buy: buy,
     };
 
-    fetch(`http://localhost:8000/api/users/${userID}`, {
+    fetch(`${baseURL}users/${userID}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

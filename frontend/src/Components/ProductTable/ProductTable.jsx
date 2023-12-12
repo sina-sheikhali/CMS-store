@@ -8,6 +8,7 @@ import EditModal from "../EditModal/EditModal";
 import { HiMiniInformationCircle } from "react-icons/hi2";
 import { HiMiniTrash } from "react-icons/hi2";
 import { FaEdit } from "react-icons/fa";
+import baseURL from "../../api";
 export default function ProductTable({ getAllProcuts, allProducts }) {
   const notify = (text, notif) => notif(text);
   const [isShowDeleteModal, setIsShowDeleteModal] = useState(false);
@@ -114,7 +115,7 @@ export default function ProductTable({ getAllProcuts, allProducts }) {
   ];
 
   const submitActionDeleteModal = () => {
-    fetch(`http://localhost:8000/api/products/${productID}`, {
+    fetch(`${baseURL}products/${productID}`, {
       method: "DELETE",
     })
       .then((respons) => respons.json())
@@ -150,7 +151,7 @@ export default function ProductTable({ getAllProcuts, allProducts }) {
       sale: productNewSale,
     };
 
-    fetch(`http://localhost:8000/api/products/${productID}`, {
+    fetch(`${baseURL}products/${productID}`, {
       method: "PUT",
 
       headers: {

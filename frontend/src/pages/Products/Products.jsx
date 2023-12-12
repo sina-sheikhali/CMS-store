@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 import ProductTable from "../../Components/ProductTable/ProductTable";
 import AddNewProduct from "../../Components/AddNewProdcut/AddNewProduct";
-
+import baseURL from "../../api";
 export default function Products() {
   const [allProducts, setAllProducts] = useState([]);
   useEffect(() => {
     getAllProducts();
   }, []);
   const getAllProducts = () => {
-    fetch("http://localhost:8000/api/products")
+    fetch(`${baseURL}products`)
       .then((respons) => respons.json())
       .then((products) => setAllProducts(products.reverse()));
   };

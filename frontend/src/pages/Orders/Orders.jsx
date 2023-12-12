@@ -4,6 +4,7 @@ import ErrorBox from "../../Components/ErrorBox/ErrorBox";
 import DeleteModal from "../../Components/DeleteModal/DeleteModal";
 import { HiMiniTrash } from "react-icons/hi2";
 import GridTable from "../../Components/GridTable/GridTable";
+import baseURL from "../../api";
 
 export default function Orders() {
   const notify = (text, notif) => notif(text);
@@ -115,7 +116,7 @@ export default function Orders() {
     getAllOrders();
   }, []);
   const getAllOrders = () => {
-    fetch("http://localhost:8000/api/orders/")
+    fetch(`${baseURL}orders/`)
       .then((respons) => respons.json())
       .then((orders) => {
         setAllOrders(orders);
@@ -123,7 +124,7 @@ export default function Orders() {
   };
 
   const submitActionDeleteModal = () => {
-    fetch(`http://localhost:8000/api/orders/${orderID}`, {
+    fetch(`${baseURL}orders/${orderID}`, {
       method: "DELETE",
     })
       .then((respons) => respons.json())
@@ -139,7 +140,7 @@ export default function Orders() {
   };
 
   const submitOrder = () => {
-    fetch(`http://localhost:8000/api/orders/active-order/${orderID}/1`, {
+    fetch(`${baseURL}orders/active-order/${orderID}/1`, {
       method: "PUT",
     })
       .then((respons) => respons.json())
@@ -154,7 +155,7 @@ export default function Orders() {
       });
   };
   const rejectOrder = () => {
-    fetch(`http://localhost:8000/api/orders/active-order/${orderID}/0`, {
+    fetch(`${baseURL}orders/active-order/${orderID}/0`, {
       method: "PUT",
     })
       .then((respons) => respons.json())

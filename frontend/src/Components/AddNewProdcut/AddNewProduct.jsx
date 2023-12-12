@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
+import baseURL from "../../api";
 export default function AddNewProduct({ getAllProducts }) {
   const notify = (text, notif) => notif(text);
   const [newProductTitle, setNewProductTitle] = useState("");
@@ -32,7 +33,7 @@ export default function AddNewProduct({ getAllProducts }) {
   const addNewProduct = (event) => {
     event.preventDefault();
 
-    fetch("http://localhost:8000/api/products", {
+    fetch(`${baseURL}products`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

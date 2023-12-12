@@ -4,6 +4,7 @@ import ErrorBox from "../../Components/ErrorBox/ErrorBox";
 import DeleteModal from "../../Components/DeleteModal/DeleteModal";
 import { HiMiniTrash } from "react-icons/hi2";
 import GridTable from "../../Components/GridTable/GridTable";
+import baseURL from "../../api";
 
 export default function Discounts() {
   const notify = (text, notif) => notif(text);
@@ -110,7 +111,7 @@ export default function Discounts() {
   ];
 
   const getAllDiscounts = () => {
-    fetch("http://localhost:8000/api/offs/")
+    fetch(`${baseURL}offs/`)
       .then((respons) => respons.json())
       .then((discounts) => {
         setAllDiscounts(discounts);
@@ -125,7 +126,7 @@ export default function Discounts() {
   const closeRejectModal = () => setIsShowRejectModal(false);
 
   const submitActionDeleteModal = () => {
-    fetch(`http://localhost:8000/api/offs/${discountID}`, {
+    fetch(`${baseURL}offs/${discountID}`, {
       method: "DELETE",
     })
       .then((respons) => respons.json())
@@ -141,7 +142,7 @@ export default function Discounts() {
   };
 
   const submitDiscount = () => {
-    fetch(`http://localhost:8000/api/offs/active-off/${discountID}/1`, {
+    fetch(`${baseURL}offs/active-off/${discountID}/1`, {
       method: "PUT",
     })
       .then((respons) => respons.json())
@@ -156,7 +157,7 @@ export default function Discounts() {
       });
   };
   const rejectDiscount = () => {
-    fetch(`http://localhost:8000/api/offs/active-off/${discountID}/0`, {
+    fetch(`${baseURL}offs/active-off/${discountID}/0`, {
       method: "PUT",
     })
       .then((respons) => respons.json())
