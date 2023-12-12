@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/CMS-store/static/css/main.46418385.css",
-    "main.js": "/CMS-store/static/js/main.ee143f9f.js",
+    "main.js": "/CMS-store/static/js/main.4defff12.js",
     "static/media/Vazir.ttf": "/CMS-store/static/media/Vazir.8698ab7164cb8aa9f35b.ttf",
     "index.html": "/CMS-store/index.html",
     "main.46418385.css.map": "/CMS-store/static/css/main.46418385.css.map",
-    "main.ee143f9f.js.map": "/CMS-store/static/js/main.ee143f9f.js.map"
+    "main.4defff12.js.map": "/CMS-store/static/js/main.4defff12.js.map"
   },
   "entrypoints": [
     "static/css/main.46418385.css",
-    "static/js/main.ee143f9f.js"
+    "static/js/main.4defff12.js"
   ]
 }
