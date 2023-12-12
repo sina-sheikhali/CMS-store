@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/CMS-store/static/css/main.46418385.css",
+    "main.js": "/CMS-store/static/js/main.10f43668.js",
+    "static/media/Vazir.ttf": "/CMS-store/static/media/Vazir.8698ab7164cb8aa9f35b.ttf",
+    "index.html": "/CMS-store/index.html",
+    "main.46418385.css.map": "/CMS-store/static/css/main.46418385.css.map",
+    "main.10f43668.js.map": "/CMS-store/static/js/main.10f43668.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.46418385.css",
+    "static/js/main.10f43668.js"
+  ]
+}
