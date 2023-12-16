@@ -5,6 +5,7 @@ import DeleteModal from "../../Components/DeleteModal/DeleteModal";
 import { HiMiniTrash } from "react-icons/hi2";
 import GridTable from "../../Components/GridTable/GridTable";
 import baseURL from "../../api";
+import Loader from "../../Components/Lodaer/Loader";
 
 export default function Discounts() {
   const notify = (text, notif) => notif(text);
@@ -12,6 +13,7 @@ export default function Discounts() {
   const [isShowDeleteModal, setIsShowDeleteModal] = useState(false);
   const [isShowRejectModal, setIsShowRejectModal] = useState(false);
   const [isShowAcceptModal, setIsShowAcceptModal] = useState(false);
+  const [isShowLoader, setIsShowLoader] = useState(true);
   const [discountID, setDiscountID] = useState();
 
   const columns = [
@@ -115,6 +117,7 @@ export default function Discounts() {
       .then((respons) => respons.json())
       .then((discounts) => {
         setAllDiscounts(discounts);
+        setIsShowLoader(false);
       });
   };
   useEffect(() => {
@@ -201,6 +204,7 @@ export default function Discounts() {
           submitAction={rejectDiscount}
         ></DeleteModal>
       )}
+      {isShowLoader && <Loader />}
       <ToastContainer rtl="true" autoClose={3000} />
     </div>
   );

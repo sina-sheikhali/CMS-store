@@ -5,11 +5,16 @@ import ErrorBox from "../ErrorBox/ErrorBox";
 import DeleteModal from "../../Components/DeleteModal/DeleteModal";
 import DetailsModal from "../DetailsModal/DetailsModal";
 import EditModal from "../EditModal/EditModal";
+import Loader from "../Lodaer/Loader";
 import { HiMiniInformationCircle } from "react-icons/hi2";
 import { HiMiniTrash } from "react-icons/hi2";
 import { FaEdit } from "react-icons/fa";
 import baseURL from "../../api";
-export default function ProductTable({ getAllProcuts, allProducts }) {
+export default function ProductTable({
+  getAllProcuts,
+  allProducts,
+  isShowLoader,
+}) {
   const notify = (text, notif) => notif(text);
   const [isShowDeleteModal, setIsShowDeleteModal] = useState(false);
   const [isShowDetailsModal, setIShowDetailsModal] = useState(false);
@@ -129,15 +134,7 @@ export default function ProductTable({ getAllProcuts, allProducts }) {
         notify("خطایی رخ داده است", toast.error);
       });
   };
-  const cancleActionDeleteModal = () => {
-    setIsShowDeleteModal(false);
-  };
-  const closeDetailsModal = () => {
-    setIShowDetailsModal(false);
-  };
-  const closeEditModal = () => {
-    setIShowEditModal(false);
-  };
+
   const updateProductInfos = (event) => {
     event.preventDefault();
 
@@ -170,6 +167,15 @@ export default function ProductTable({ getAllProcuts, allProducts }) {
       });
   };
 
+  const cancleActionDeleteModal = () => {
+    setIsShowDeleteModal(false);
+  };
+  const closeDetailsModal = () => {
+    setIShowDetailsModal(false);
+  };
+  const closeEditModal = () => {
+    setIShowEditModal(false);
+  };
   return (
     <>
       {allProducts.length ? (
@@ -341,6 +347,7 @@ export default function ProductTable({ getAllProcuts, allProducts }) {
           </div>
         </EditModal>
       )}
+      {isShowLoader && <Loader />}
       <ToastContainer rtl="true" autoClose={3000} />
     </>
   );

@@ -5,13 +5,14 @@ import DeleteModal from "../../Components/DeleteModal/DeleteModal";
 import { HiMiniTrash } from "react-icons/hi2";
 import GridTable from "../../Components/GridTable/GridTable";
 import baseURL from "../../api";
-
+import Loader from "../../Components/Lodaer/Loader";
 export default function Orders() {
   const notify = (text, notif) => notif(text);
   const [allOrders, setAllOrders] = useState([]);
   const [isShowDeleteModal, setIsShowDeleteModal] = useState(false);
   const [isShowRejectModal, setIsShowRejectModal] = useState(false);
   const [isShowAcceptModal, setIsShowAcceptModal] = useState(false);
+  const [isShowLoader, setIsShowLoader] = useState(true);
   const [orderID, setOrderID] = useState();
   const columns = [
     { field: "id", headerName: "#", width: 50, headerAlign: "center" },
@@ -120,6 +121,7 @@ export default function Orders() {
       .then((respons) => respons.json())
       .then((orders) => {
         setAllOrders(orders);
+        setIsShowLoader(false);
       });
   };
 
@@ -203,6 +205,7 @@ export default function Orders() {
           submitAction={rejectOrder}
         ></DeleteModal>
       )}
+      {isShowLoader && <Loader />}
       <ToastContainer rtl="true" autoClose={3000} />
     </div>
   );

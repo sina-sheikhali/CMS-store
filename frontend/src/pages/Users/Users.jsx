@@ -9,6 +9,7 @@ import { HiMiniInformationCircle } from "react-icons/hi2";
 import { HiMiniTrash } from "react-icons/hi2";
 import { FaEdit } from "react-icons/fa";
 import baseURL from "../../api";
+import Loader from "../../Components/Lodaer/Loader";
 export default function Users() {
   const notify = (text, notif) => notif(text);
 
@@ -16,6 +17,7 @@ export default function Users() {
   const [isShowDeleteModal, setIsShowDeleteModal] = useState(false);
   const [isShowDetailsModal, setIsShowDetailsModal] = useState(false);
   const [isShowEditModal, setIsShowEditModal] = useState(false);
+  const [isShowLoader, setIsShowLoader] = useState(true);
   const [mainUserInfos, setMainUserInfos] = useState();
   const [userID, setUserID] = useState();
   const [firstName, setFirstName] = useState("");
@@ -134,6 +136,7 @@ export default function Users() {
       .then((respons) => respons.json())
       .then((result) => {
         setAllUsers(result);
+        setIsShowLoader(false);
       });
   };
 
@@ -418,6 +421,7 @@ export default function Users() {
           </table>
         </DetailsModal>
       )}
+      {isShowLoader && <Loader />}
       <ToastContainer rtl="true" autoClose={3000} />
     </div>
   );

@@ -4,13 +4,17 @@ import AddNewProduct from "../../Components/AddNewProdcut/AddNewProduct";
 import baseURL from "../../api";
 export default function Products() {
   const [allProducts, setAllProducts] = useState([]);
+  const [isShowLoader, setIsShowLoader] = useState(true);
   useEffect(() => {
     getAllProducts();
   }, []);
   const getAllProducts = () => {
     fetch(`${baseURL}products`)
       .then((respons) => respons.json())
-      .then((products) => setAllProducts(products.reverse()));
+      .then((products) => {
+        setAllProducts(products.reverse());
+        setIsShowLoader(false);
+      });
   };
   return (
     <>
@@ -19,6 +23,7 @@ export default function Products() {
         <ProductTable
           getAllProcuts={getAllProducts}
           allProducts={allProducts}
+          isShowLoader={isShowLoader}
         />
       </div>
     </>

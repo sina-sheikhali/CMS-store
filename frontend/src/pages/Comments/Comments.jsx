@@ -8,6 +8,7 @@ import DetailsModal from "../../Components/DetailsModal/DetailsModal";
 import DeleteModal from "../../Components/DeleteModal/DeleteModal";
 import EditModal from "../../Components/EditModal/EditModal";
 import baseURL from "../../api";
+import Loader from "../../Components/Lodaer/Loader";
 export default function Comments() {
   const notify = (text, notif) => notif(text);
   const [allComments, setAllComments] = useState([]);
@@ -16,6 +17,7 @@ export default function Comments() {
   const [isShowEditModal, setIsShowEditModal] = useState(false);
   const [isShowAcceptModal, setIsShowAcceptModal] = useState(false);
   const [isShowRejectModal, setIsShowRejectModal] = useState(false);
+  const [isShowLoader, setIsShowLoader] = useState(true);
   const [commentID, setCommentID] = useState(null);
   const [mainCommentBody, setMainCommentBody] = useState("");
   const columns = [
@@ -115,7 +117,10 @@ export default function Comments() {
   const getAllComments = () => {
     fetch(`${baseURL}comments`)
       .then((respons) => respons.json())
-      .then((comments) => setAllComments(comments));
+      .then((comments) => {
+        setAllComments(comments);
+        setIsShowLoader(false);
+      });
   };
 
   const submitActionDeleteModal = () => {
@@ -240,6 +245,7 @@ export default function Comments() {
           submitAction={rejectComment}
         ></DeleteModal>
       )}
+      {isShowLoader && <Loader />}
       <ToastContainer rtl="true" autoClose={3000} />
     </div>
   );
